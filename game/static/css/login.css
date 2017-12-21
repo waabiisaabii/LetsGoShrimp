@@ -1,0 +1,77 @@
+
+/*
+ * General styles
+ */
+
+body, html{
+    height: 100%;
+    background-attachment: fixed;
+
+ 	background-repeat: no-repeat;
+ 	font-family: 'Oxygen', sans-serif;
+}
+
+.main{
+ 	margin-top: 70px;
+}
+
+
+hr{
+	width: 10%;
+	color: #fff;
+}
+
+.form-group{
+	margin-bottom: 15px;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 11px;
+    padding-top: 3px;
+   
+}
+
+#homebutton{
+    background-color: #b71c1c;
+    padding: 10px 24px;
+    border-radius: 8px;
+    text-align:center;
+    margin:auto;
+}
+
+#homebutton:hover {background-color: #771a16}
+
+
+#homebutton:active {
+  background-color: #771a16;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#signup{
+    color:#454141;
+    font-size:15px;
+}
+
+
+.main-center{
+ 	margin-top: 30px;
+ 	margin: 0 auto;
+ 	max-width: 530px;
+    padding: 30px 30px;
+
+}
+
+.login-button{
+    background-color: #b71c1c;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-align:center;
+    margin:auto;
+}
+
+.login-register{
+	font-size: 11px;
+	text-align: center;
+}

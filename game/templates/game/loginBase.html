@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="csrfmiddlewaretoken" content="{{ csrf_token }}">
+{% block head_canvas %}{% endblock head_canvas %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/static/css/base.css">
+<link rel="stylesheet" type="text/css" href="/static/css/login.css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css"  media="screen,projection"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% endblock css %}
+<script type="text/javascript" src="{% static "js/jquery-3.1.1.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/p5.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/p5.sound.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/p5.dom.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/reconnecting-websocket.min.js" %}"></script>
+{% block requireJS %}
+{% endblock requireJS %}
+</head>
+<body>
+
+
+
+
+
+
+{% block signup %}{% endblock signup %}
+
+{% block login %}{% endblock login %}
+
+{% block game %}{% endblock game %}
+
+
+
+
+
+
+</body>
+</html>

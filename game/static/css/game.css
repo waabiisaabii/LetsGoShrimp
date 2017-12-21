@@ -1,0 +1,23 @@
+.myfilter{
+	position:absolute;
+	background-color:#000000;
+	opacity:0.3;
+	width:800px;
+	height:600px;
+	display:none
+}
+
+.myrestartbutton{
+	position:absolute;
+	padding-top:300px;
+	padding-left:370px;
+	display:none;
+}
+
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+.main {
+    position:relative;
+  }

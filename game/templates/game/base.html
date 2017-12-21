@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<!-- <meta http-equiv="refresh" content="1"/> -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="csrfmiddlewaretoken" content="{{ csrf_token }}">
+{% block head_canvas %}{% endblock head_canvas %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">
+{% endblock css %}
+<script type="text/javascript" src="{% static "js/jquery-3.1.1.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/p5.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/p5.sound.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/p5.dom.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/reconnecting-websocket.min.js" %}"></script>
+{% block requireJS %}
+{% endblock requireJS %}
+</head>
+<body>
+
+<nav>
+        <div class="nav-wrapper grey darken-3">
+          <a href="#" class="brand-logo"> <h4>&nbsp &nbsp Pipi Shrimp Let's Go!</h4></a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="{% url "home" %}">Home</a></li>
+            <li><a href="{%url 'logout'%}">logout</a></li>
+            </li>
+          </ul>
+          <ul id="mobile-demo" class="side-nav">
+            <li><a href="{% url "home" %}">global</a></li>
+            <li><a href="{%url 'logout'%}">logout&nbsp&nbsp</a></li>
+          </ul>
+        </div>
+      </nav>
+
+
+
+
+
+{% block signup %}{% endblock signup %}
+
+{% block login %}{% endblock login %}
+
+{% block game %}{% endblock game %}
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+{% extends "game/loginBase.html" %}
+{% block css %}
+{% endblock css %}
+
+{% block login %}
+
+<div class="col s12 m6">
+  <video class="responsive-video" controls>
+    <source src="demoo.mp4" type="video/mp4">
+  </video>
+</div>
+
+<div class="col s12 m6">
+	<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+    	{% if form.errors %}
+    	<p>
+    		Please enter a correct username and password. Note that both fields may be case-sensitive.
+    	</p>
+    	{% endif %}
+		<label for="id_username" class="cols-sm-2 control-label">Username</label>
+				<div>
+					<div>
+						<span class="input-group-addon"></span>
+						<input type="text" class="form-control" name="username" id="id_username"  autofocus required  maxlength="254"  placeholder="Enter your Name"/>
+					</div>
+				</div>
+	</div>
+	<div >
+		<label >Password</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<span class="input-group-addon"></span>
+					<input type="password" class="form-control" name="password" required id="id_password" placeholder="Enter your password"/>
+				</div>
+			</div>
+	</div>
+
+    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Login</button>
+
+    <div class="login-register">
+    <a href="{%url 'signup'%}">Sign up</a>
+   </div>
+  </form>
+</div>
+
+ {% endblock login %}

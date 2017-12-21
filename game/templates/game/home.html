@@ -1,0 +1,132 @@
+{% extends "game/base.html" %}
+{% load static %}
+{% block head_canvas %}
+
+{% endblock head_canvas %}
+
+
+{% block requireJS %}
+
+<script type="text/javascript" src="{% static "js/home.js" %}"></script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="{% static "js/materialize.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/init.js" %}"></script>
+{% endblock requireJS %}
+
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static "css/home.css" %}">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="{% static "css/materialize.min.css" %}"  media="screen,projection"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock css %}
+
+
+
+{% block game %}
+
+<div class="row">
+	<div class="col s4">
+		<div class="card">
+			<div class="card-content black-text">
+				<div class="card-title">
+					<div class="row">
+						<div class="col s10 title">Ranking</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="card-action">
+
+				<table class="bordered">
+					<thead>
+
+
+						<tr>
+							<th>User</th>
+							<th>Score</th>
+						</tr>
+
+						{% if gameusers %}
+						{% for gameuser in gameusers %}
+
+
+					</thead>
+
+					<tbody>
+						<tr>
+							<td>{{ gameuser.user }}</td>
+							<td>{{ gameuser.highest_score }}</td>
+						</tr>
+						{% endfor %}
+						{% endif %}
+
+
+					</tbody>
+				</table>
+
+
+			</div>
+		</div>
+	</div>
+
+	<div class="col s8">
+    <div class="row s6">
+			<div class="card">
+			<div class="card-title">
+					<div class="row">
+						<div class="col s10 title">Go Shrimp!</div><br>
+					</div>
+				</div>
+	<div class="card-content">
+
+      <div class="video-container">
+
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/fRv4CB6fhn8" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe></div>
+    </div>
+				<div class="card-tabs">
+					<ul class="tabs tabs-fixed-width">
+						<li class="tab"><a href="#test4" class="black-text" >Start Single User Game</a></li>
+						<li class="tab"><a class="active black-text" href="#test5" >Create New Room</a></li>
+						<li class="tab"><a href="#test6" class="black-text">Join Others' Room</a></li>
+					</ul>
+				</div>
+				<div class="card-content grey lighten-4">
+					<div id="test4">
+					<div class="container">
+						<a href = "{%url 'new_game' %}" class="white-text button" id="homebutton">Start a New Game</a><br><br>
+						{% if flag %}
+						<div id="resume-button"><a href = "{%url 'game' %}" class="white-text button" id="homebutton">Resume Game</a></div><br><br>
+						{% endif %}
+					</div>
+					</div>
+					<div id="test5">
+					<div class="container">
+					<a href = "{%url 'create_room' %}" class="white-text button" id="homebutton">Create New Room</a>
+					</div>
+					</div>
+					<div id="test6">
+						<div id='room' class="container">
+							{% if rooms %}
+							{% for room in rooms %}
+							{% if room.alive == 1 %}
+							<div id="{{room.id}}"><a href="{% url 'join_room' room.label %}" class="white-text button" id="homebutton"> Room owner: {{room.user.username}} </a></div>
+							<br><br><br>
+							{% endif %}
+							{% endfor %}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		</div>
+		</div>
+
+
+
+	{% endblock game %}

@@ -1,0 +1,65 @@
+{% extends "game/loginBase.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static "assets/css/bootstrap.css" %}">
+
+<!-- Website CSS style -->
+<link rel="stylesheet" type="text/css" href="{% static "css/login.css" %}">
+
+<!-- Website Font style -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		
+<!-- Google Fonts -->
+<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+{% endblock css %}
+
+{% block login %}
+
+
+<div class="container">
+
+	<div class ="row main">
+		<div class="panel-heading">
+	    </div> 
+
+
+ <div class="main-login main-center">
+<img src="/static/image/smile.png" width="400px" height="400px">
+<br><br><br><br>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+    	{% if form.errors %}
+    	<p>
+    		Please enter a correct username and password. Note that both fields may be case-sensitive.
+    	</p>
+    	{% endif %}
+
+				<div class="cols-sm-10">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+						<input type="text" class="form-control" name="username" id="id_username"  autofocus required  maxlength="254"  placeholder="Enter your Name"/>
+					</div>
+				</div>
+	</div>
+	<div class="form-group">
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+					<input type="password" class="form-control" name="password" required id="id_password" placeholder="Enter your password"/>
+				</div>
+			</div>
+	</div>
+
+    <div class="form-group ">
+    <button type="submit" class="btn btn-primary btn-lg btn-block" id="homebutton">Login</button>
+    </div>
+    <div class="login-register">
+    <a href="{%url 'signup'%}" id="signup">Sign up</a>
+   </div>
+  </form>
+	</div>
+	</div>
+</div>
+ {% endblock login %}

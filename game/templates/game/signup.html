@@ -1,0 +1,69 @@
+{% extends "game/loginBase.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static "assets/css/bootstrap.css" %}">
+
+<!-- Website CSS style -->
+<link rel="stylesheet" type="text/css" href="{% static "css/login.css" %}">
+
+<!-- Website Font style -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		
+<!-- Google Fonts -->
+<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+{% endblock css %}
+{% block signup %}
+ <div class="container">
+	<div class ="row main">
+<div class="main-login main-center">
+<img src="/static/image/smile.png" width="400px" height="400px">
+<br><br><br><br>
+  <form method="post">
+    {% csrf_token %}
+   
+    {% for field in forms %}
+    {{field.errors}} 
+    {% endfor %}
+     <div class="form-group">
+
+				<div class="cols-sm-10">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+						<input type="text" class="form-control" name="username" id="id_username"  autofocus required  maxlength="254"  placeholder="Enter your Name"/>
+					</div>
+				</div>
+	</div>
+	<div class="form-group">
+
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+					<input type="password" class="form-control" name="password1" required id="id_password1" placeholder="Enter your password"/>
+				</div>
+			</div>
+		</div>
+	<div class="form-group">
+
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+					<input type="password" class="form-control" name="password2" required id="id_password2" placeholder="Confirm your password"/>
+				</div>
+			</div>
+		</div>
+	<div class="form-group ">
+    <button type="submit" class="btn btn-primary btn-lg btn-block login-button" id="homebutton">Sign up</button>
+    </div>
+     <div class="login-register">
+    <a href="{%url 'login'%}" id="signup">Log in</a>
+    </div>
+ </form>
+</div>
+</div>
+</div>
+{% endblock signup %}
+
+
+
+

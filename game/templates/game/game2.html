@@ -1,0 +1,68 @@
+{% extends "game/base.html" %}
+{% load static %}
+{% csrf_token %}
+{% block requireJS %}
+<script type="text/javascript" src="{% static 'js/websocketbridge.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/game_multiple.js' %}"></script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="{% static "js/materialize.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/init.js" %}"></script>
+{% endblock requireJS %}
+
+{% block head_canvas %}
+{% endblock head_canvas %}
+
+
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static "css/game.css" %}">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="{% static "css/materialize.min.css" %}"  media="screen,projection"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock css %}
+
+
+{% block game %}
+
+<body onload="twoUser({{user.id}},{{room.alive}},{{room.id}},{{room.user.id}})">
+<!--<body onload="beforeStartGame({{user.id}})">-->
+{# <p> {{room.alive}}</p> #}
+
+
+<div class = "col s8 container">
+	<h3></h3>
+	<div id="myfilter" class="myfilter"></div>
+	
+	<div id="mybackhomebutton" class = "myrestartbutton">
+		<button onclick="backhome({{user.id}})"> Go to home page </button>
+	</div>
+
+	<div id="mywinbutton" class = "myrestartbutton">
+		<button onclick="backhome({{user.id}})"> You Win! </button>
+	</div>
+	<div id="myreadybutton" class = "myrestartbutton">
+		<button onclick="ready()"> Ready </button>
+	</div>
+	<div id="mystartbutton" class = "myrestartbutton">
+		<button onclick="start()"> Start </button>
+	</div>
+
+	<div id="myloserbutton" class = "myrestartbutton">
+		<button onclick="backhome({{user.id}})"> You lose :( </button>
+	</div>
+
+
+	
+	<div id="canvascontainer"></div>
+  </div>
+	<!-- <div class="col-sm-4">
+  		<button ontouchstart="run()" onmousedown="run()" onmouseup="clearmove()">Run</button>
+  		<br><br>
+  		<button ontouchstart="jump()" onmousedown="jump()" onmouseup="clearmove()">Jump</button>
+  		<br><br>
+	</div> -->
+<br>
+{% endblock game %}
